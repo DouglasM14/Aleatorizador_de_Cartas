@@ -124,13 +124,13 @@ function sortearCarta(tipo) {
 
     switch (tipo) {
         case cartasAção:
-            fundoCarta.style.backgroundImage = 'url(imagens/Carta_Bronze_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Carta_Bronze_F.jpg)'
             break
         case cartasPassivas:
-            fundoCarta.style.backgroundImage = 'url(imagens/Carta_Azul_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Carta_Azul_F.jpg)'
             break
         case cartasLivros:
-            fundoCarta.style.backgroundImage = 'url(imagens/Carta_Dourada_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Carta_Dourada_F.jpg)'
             break
     }
 
