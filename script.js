@@ -1,6 +1,5 @@
-
 var cartasAção = [
-    'Avance uma casa, restam 3',
+    'Avance um-a casa, restam 3',
     'Avance dois casas, restam 2',
     'Avance três casas, restam 1',
     'Todos Avançam uma casas, restam 3',
@@ -92,16 +91,28 @@ var cartasLivros = [
     'O Pagador de Promessas, Dias Gome, restams 1'
 ]
 
+var quantcartasAção = 84
+var quantcartasPassivas = 57
+var quantcartasLivros = 20
+
+var botões = document.querySelectorAll('.botãoCarta')
+
+var cartaRodada = null
+var txtEfeito = null
+
 function sortearCarta(tipo) {
+
     var numeroSorteado = Math.floor(Math.random() * (tipo).length)
 
     let cartaEscolhida = tipo[numeroSorteado]
+    cartaRodada = cartaEscolhida
     let quantCartaEscolhida = cartaEscolhida.slice(-1)
 
     if (quantCartaEscolhida == '0') {
         while (quantCartaEscolhida == '0') {
             numeroSorteado = Math.floor(Math.random() * tipo.length)
             cartaEscolhida = tipo[numeroSorteado]
+            cartaRodada = cartaEscolhida
             quantCartaEscolhida = cartaEscolhida.slice(-1)
         }
     }
@@ -121,25 +132,94 @@ function sortearCarta(tipo) {
     }
 
     let fundoCarta = document.getElementById('fundoCarta')
+    let txtAçãoRestam = document.querySelector("#açãoRestam")
+    let txtPassivasRestam = document.querySelector("#passivasRestam")
+    let txtLivtrosRestam = document.querySelector("#livrosRestam")
 
     switch (tipo) {
         case cartasAção:
-            fundoCarta.style.backgroundImage = 'url(Carta_Bronze_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Assets/Carta_Bronze_F.jpg)'
+            quantcartasAção -= 1
+            txtAçãoRestam.innerText = quantcartasAção
             break
         case cartasPassivas:
-            fundoCarta.style.backgroundImage = 'url(Carta_Azul_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Assets/Carta_Azul_F.jpg)'
+            quantcartasPassivas -= 1
+            txtPassivasRestam.innerText = quantcartasPassivas
+            botões[0].classList.toggle('esconder')
+            botões[1].classList.toggle('esconder')
+            botões[2].classList.toggle('esconder')
+            botões[3].classList.toggle('esconder')
             break
         case cartasLivros:
-            fundoCarta.style.backgroundImage = 'url(Carta_Dourada_F.jpg)'
+            fundoCarta.style.backgroundImage = 'url(Assets/Carta_Dourada_F.jpg)'
+            quantcartasLivros -= 1
+            txtLivtrosRestam.innerText = quantcartasLivros
+            botões[0].classList.toggle('esconder')
+            botões[1].classList.toggle('esconder')
+            botões[2].classList.toggle('esconder')
+            botões[3].classList.toggle('esconder')
             break
     }
 
-    let txtEfeito = document.getElementById('efeito')
-
+    txtEfeito = document.getElementById('efeito')
     txtEfeito.innerText = tipo[numeroSorteado]
 
-    console.log(`Numero sorteado: ${numeroSorteado}`)
-    console.log(`quantidae ${quantCartaEscolhida}`)
-    console.log(`Carta escolhida: ${cartaEscolhida}`)
-    console.log(tipo)
+}
+
+function trocarPag() {
+    let pagJogadores = document.querySelector('#pagJogadores')
+    let pagSorteio = document.querySelector('#pagSorteio')
+    pagJogadores.classList.toggle('esconder')
+    pagSorteio.classList.toggle('esconder')
+}
+
+var cartasP1 = document.querySelector("#cartasP1")
+var cartasP2 = document.querySelector("#cartasP2")
+var cartasP3 = document.querySelector("#cartasP3")
+var cartasP4 = document.querySelector("#cartasP4")
+
+function adicionarCartaJogador(jogador) {
+    let idAleatorio = Math.floor(Math.random() * 10000)
+    switch (jogador) {
+        case 1:
+            cartasP1.innerHTML += `<p>-> ${cartaRodada} <button onclick="removerCarta(this.id)" id="${idAleatorio}" >Remover</button></p>`
+            break;
+        case 2:
+            cartasP2.innerHTML += `<p>-> ${cartaRodada} <button onclick="removerCarta(this.id)" id="${idAleatorio}" >Remover</button></p>`
+            break;
+        case 3:
+            cartasP3.innerHTML += `<p>-> ${cartaRodada} <button onclick="removerCarta(this.id)" id="${idAleatorio}">Remover</button></p>`
+            break;
+        case 4:
+            cartasP4.innerHTML += `<p>-> ${cartaRodada} <button onclick="removerCarta(this.id)" id="${idAleatorio}">Remover</button></p>`
+            break;
+    }
+    txtEfeito.innerText = ''
+    botões[0].classList.toggle('esconder')
+    botões[1].classList.toggle('esconder')
+    botões[2].classList.toggle('esconder')
+    botões[3].classList.toggle('esconder')
+}
+
+function mudarJogador(jogador) {
+    switch (jogador) {
+        case 1:
+            cartasP1.classList.toggle("esconder")
+            break;
+        case 2:
+            cartasP2.classList.toggle("esconder")
+            break;
+        case 3:
+            cartasP3.classList.toggle("esconder")
+            break;
+        case 4:
+            cartasP4.classList.toggle("esconder")
+            break;
+    }
+}
+
+function removerCarta(idCarta) {
+    var cartaApagada = document.getElementById(`${idCarta}`).parentNode
+    cartaApagada.parentElement.removeChild(cartaApagada)
 }

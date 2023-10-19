@@ -1,50 +1,100 @@
-@font-face {
-    font-family: minhafonte;
-    src: url(Ailerons-Typeface.otf);
-  }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.esconder {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
 
 body {
-    background-color: antiquewhite;
+    background-color: #f8f1e9;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    
+    width: 100%;
 }
 
-header {
+header{
+    width: 100%;
+}
+
+nav {
+    width: 100%;
+    position: fixed;
+}
+
+nav button {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 5px;
+    background-color: #97b1d5;
+    border: none;
+}
+
+nav button:hover{
+    background-color: #aebbcd;
+}
+
+#pagSorteio {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 30px;
 }
 
-header h1 {
+h1 {
     font-size: 2rem;
     font-weight: bold;
-    font-family: minhafonte;
     margin: 10px;
 }
 
-header div {
+.menuBotões {
     display: flex;
     flex-direction: row;
     gap: 20px;
 }
 
-header div button {
+.botões{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.botões p {
+    font-size: 0.8rem;
+    font-weight: 200;
+}
+
+.botões span {
+    font-weight: bold;
+}
+
+.botões button {
     font-size: 1.2rem;
     padding: 10px;
     border-radius: 10px;
     border: 1px solid gray;
+    font-weight: bold;
+    color: white;
 }
 
-header div button:hover{
-    background-color: burlywood;
+button:hover{
+    background-color: rgb(165, 165, 165);
 }
 
-section{    
-    background-image: url(Carta_Bronze_F.jpg);
+#fundoCarta{    
+    background-image: url(Assets/Carta_Bronze_F.jpg);
     background-repeat: no-repeat;
     width: 320px;
     height: 512px;
@@ -54,14 +104,131 @@ section{
     justify-content: center;
 }
 
-section div{
+#fundoCarta div{
     display: flex;
     width: 80%;
 }
 
-section div span{
+#fundoCarta div span{
     color: rgb(0, 0, 0);
     font-size: 1.5rem;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.descrição-carta{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.descrição-carta div{
+    display: flex;
+    flex-direction: column;
+}
+
+.descrição-carta div button{
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 3px;
+    border: 1px solid gray;
+    font-weight: bold;
+    color: white;
+}
+
+.descrição-carta div button:hover{
+    background-color: rgb(165, 165, 165);
+}
+
+#pagJogadores{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+}
+
+h2{
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+#menuJogadores {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 5px;
+}
+
+#menuJogadores button {
+    font-size: 1.2rem;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border: 1px solid gray;
+    font-weight: bold;
+    color: white;
+}
+
+#menuJogadores button:hover{
+    background-color: burlywood;
+}
+
+.cartasJogador {
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.cartasJogador2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border: 1px solid #e2ddd9;
+    border-radius: 25px;
+    padding: 10px;
+}
+
+.cartasJogador p {
+    margin: 0 20px 0 20px;
+}
+
+.cartasJogador button {
+    padding: 2px;
+    border: 1px solid gray;
+}
+
+.p1 {
+    background-color: #f5cc17;
+}
+
+.p2 {
+    background-color: #09a3ad;
+}
+
+.p3 {
+    background-color: #a7cc15;
+}
+
+.p4 {
+    background-color: #d53d0c;
+}
+
+#b1{
+    background-color: #c0ae98;
+}
+
+#b2{
+    background-color: #abbace;
+}
+
+#b3{
+    background-color: #e5d284;
 }

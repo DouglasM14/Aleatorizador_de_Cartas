@@ -11,21 +11,77 @@
 <body>
 
     <header>
-        <h1>Sortear uma carta:</h1>
-        <div>
-            <button onclick="sortearCarta(cartasAção)">Ação</button>
-            <button onclick="sortearCarta(cartasPassivas)">Passiva</button>
-            <button onclick="sortearCarta(cartasLivros)">livro</button>
-        </div>
-
+        <nav>
+            <button onclick="trocarPag()">Trocar Página</button>
+        </nav>
     </header>
 
-    <section id="fundoCarta">
-        <div>
-            <span id="efeito">A carta que será sorteada apararecera aqui.</span>
+    <section id="pagSorteio">
+
+        <h1>Sortear uma carta</h1>
+
+        <div class="menuBotões">
+            <div class="botões">
+                <button id="b1" onclick="sortearCarta(cartasAção)">Ação</button>
+                <p>Restam <span id="açãoRestam">84</span> Cartas</p>
+            </div>
+
+            <div class="botões">
+                <button id="b2" onclick="sortearCarta(cartasPassivas)">Passiva</button>
+                <p>Restam <span id="passivasRestam">57</span> Cartas</p>
+            </div>
+
+            <div class="botões">
+                <button id="b3" onclick="sortearCarta(cartasLivros)">livro</button>
+                <p>Restam <span id="livrosRestam">20</span> Cartas</p>
+            </div>
         </div>
+
+        <section id="fundoCarta">
+            <div class="descrição-carta">
+                <span id="efeito">A carta que será sorteada apararecera aqui.</span>
+                <div>
+                    <button class="p1 botãoCarta esconder" onclick="adicionarCartaJogador(1)">Amarelo</button>
+                    <button class="p2 botãoCarta esconder" onclick="adicionarCartaJogador(2)">Azul</button>
+                    <button class="p3 botãoCarta esconder" onclick="adicionarCartaJogador(3)">Verde</button>
+                    <button class="p4 botãoCarta esconder" onclick="adicionarCartaJogador(4)">Vermelho</button>
+                </div>
+            </div>
+        </section>
+
     </section>
 
+    <section id="pagJogadores" class="esconder">
+
+        <h1>Escolha um jogador</h1>
+
+        <div id="menuJogadores">
+            <button class="p1" onclick="mudarJogador(1)">Amarelo</button>
+            <button class="p2" onclick="mudarJogador(2)">Azul</button>
+            <button class="p3" onclick="mudarJogador(3)">Verde</button>
+            <button class="p4" onclick="mudarJogador(4)">Vermelho</button>
+        </div>
+
+        <div class="cartasJogador">
+
+            <div id="cartasP1" class="cartasJogador2 esconder">
+                <h2>Essas são suas cartas Jogador Amarelo</h2>
+            </div>
+
+            <div id="cartasP2" class="cartasJogador2 esconder">
+                <h2>Essas são suas cartas Jogador Azul</h2>
+            </div>
+
+            <div id="cartasP3" class="cartasJogador2 esconder">
+                <h2>Essas são suas cartas Jogador Verde</h2>
+            </div>
+
+            <div id="cartasP4" class="cartasJogador2 esconder">
+                <h2>Essas são suas cartas Jogador Vermelho</h2>
+            </div>
+        </div>
+
+    </section>
     <script src="script.js"></script>
 </body>
 
